@@ -13,12 +13,12 @@ class View {
         return finishPosition
     }
 
-    fun showCars(cars: MutableList<Car>) {
+    fun showCars(cars: List<Car>) {
         println("자동차 목록 : ${cars.map { it.name }.joinToString()}")
     }
 
-    fun showPauseOrResume() {
-        println("엔터가 입력되었습니다.")
+    fun showPauseOrResume(isMovable: Boolean) {
+        println(if (isMovable) "경주를 다시 시작합니다." else "경주를 일시중지합니다.")
     }
 
     fun invalidInput() {
@@ -26,6 +26,12 @@ class View {
     }
 
     fun showNewCar(newCar: Car) {
-        println("${newCar.name}을 새로 만들었어요.")
+        println("새로운 자동차 [${newCar.name}] 추가")
+    }
+
+    companion object {
+        const val COMMAND_ADD_LENGTH = 4
+        const val COMMAND_ADD = "add "
+        const val COMMAND_PAUSE_OR_RESTART = ""
     }
 }

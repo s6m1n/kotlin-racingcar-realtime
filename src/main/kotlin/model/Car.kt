@@ -1,20 +1,15 @@
 package model
 
+import kotlinx.coroutines.delay
+
 data class Car(
     val name: String,
     var position: Int = 0,
 ) {
-    private var isMovable: Boolean = true
-
-    fun move() {
+    suspend fun move() {
+        delay((1000L..2000L).random())
         position += 1
     }
 
-    fun changeMovable() {
-        isMovable = !isMovable
-    }
-
-    fun isMovable() = isMovable
-
-    fun isArrived(finishPosition: Int) = finishPosition <= position
+    fun isArrived(goal: Int) = goal <= position
 }
