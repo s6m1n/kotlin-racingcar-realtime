@@ -7,10 +7,14 @@ class View {
         return cars
     }
 
-    fun readGoalPosition(): Int {
+    fun readGoal(): Int {
         println("목표 거리를 입력하세요.")
         val finishPosition = readln().toInt()
         return finishPosition
+    }
+
+    fun showCar(car: Car) {
+        println("${car.name} : ${"-".repeat(car.position)}")
     }
 
     fun showCars(cars: List<Car>) {
@@ -23,6 +27,10 @@ class View {
 
     fun invalidInput() {
         println("입력 형식이 올바르지 않습니다.")
+    }
+
+    fun finishApplication() {
+        println("프로그램을 종료합니다.")
     }
 
     fun showNewCar(newCar: Car) {
